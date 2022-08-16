@@ -29,7 +29,7 @@ fun main() {
  *
  * Complexity of the problem:
  *  here,
- *   n = size of the node
+ *   n = number of the node
  *  time: O(n)
  *  space: O(n)
  */
