@@ -12,6 +12,11 @@ fun main() {
     val li23 = ListNode(4)
     li22.next = li23
     li21.next = li22*/
+    val r = reverseLink1(li1)
+    println("reverse -----")
+    printLink(r)
+    println("head -----")
+    printLink(li1)
     println("isPalindrome ${isPalindrome(li1)}")
 
 }
@@ -68,13 +73,11 @@ fun isPalindrome(head: ListNode?): Boolean {
 }
 
 private fun printLink(head: ListNode?) {
-    var temp = head
-    println("val <<h >>${temp?.next?.`val`}")
+    if (head == null) return
 
-    while (temp != null) {
-        println("val >>${temp.`val`}")
-        temp = temp.next
-    }
+    println("${head.`val`} ->")
+
+    printLink(head.next)
 }
 
 private fun reverseLink(head: ListNode?): ListNode? { //1 > 2 > 2 > 1
@@ -96,4 +99,15 @@ private fun reverseLink(head: ListNode?): ListNode? { //1 > 2 > 2 > 1
 
     return result
 
+}
+
+/**
+ * Reverse link list using recursion
+ */
+private fun reverseLink1(curr: ListNode?, prev: ListNode? = null): ListNode? { //1 > 2 > 2 > 1
+    if(curr == null) return prev
+
+    val next = curr.next
+    curr.next = prev
+    return reverseLink1(next, curr)
 }
