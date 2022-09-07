@@ -8,7 +8,7 @@ fun main(args: Array<String>) {
     println("isPalindrome1 ${isPalindrome1(12321)}")
 
     println("isPalindromeWithoutConvertString ${isPalindromeWithoutConvertString(12321)}")
-
+    println("reverse ${reverseNum(1234)}")
 }
 
 //using builtin function in kotlin solved the problem
@@ -45,4 +45,11 @@ fun isPalindromeWithoutConvertString(x: Int): Boolean {
     // Example, if x = 23132, at the end of for loop x = 23 and reversedNum = 231
     // So, reversedNum/10 = 23, which is equal to x
     return xTemp == reverseNum || (reverseNum / 10 == xTemp)
+}
+
+fun reverseNum(x: Int): String {
+   if (x == 0 || x < 0) return ""
+    val reminder = x % 10
+    val current: Int = x / 10
+    return "$reminder" + reverseNum(current)
 }
