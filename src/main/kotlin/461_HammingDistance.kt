@@ -1,6 +1,6 @@
 fun main() {
-    println("hammingDistance ${hammingDistance(680142203,
-        1111953568)}")
+    println("hammingDistance ${hammingDistance(1,
+        5)}")
 }
 
 /**
