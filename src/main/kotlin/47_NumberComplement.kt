@@ -2,7 +2,7 @@ import kotlin.math.floor
 import kotlin.math.ln
 
 fun main() {
-    println("complement ${findComplement2(5)}")
+    println("complement ${findComplement1(5)}")
 }
 
 /**
@@ -59,6 +59,7 @@ fun findComplement1(num: Int): Int {
 fun findComplement2(num: Int): Int {
     var  n = num
     val storageOfBinary: MutableList<Int> = mutableListOf()
+    //decimal to binary
     while (n != 0) {
         storageOfBinary.add(n % 2)
         n /= 2
