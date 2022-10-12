@@ -27,7 +27,7 @@ fun main() {
     printTree(invertTree(root))
 }
 
-private fun printTree(root: TreeNode?) {
+fun printTree(root: TreeNode?) {
     var current = root
     val queue: Queue<TreeNode> = LinkedList<TreeNode>()
     while (current != null ) {
