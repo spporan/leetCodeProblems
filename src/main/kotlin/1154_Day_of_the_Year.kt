@@ -1,4 +1,3 @@
-import java.util.Date
 
 fun main() {
     println("Day of the year: ${dayOfYear("2003-03-01")} ")
