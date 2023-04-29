@@ -25,7 +25,7 @@ fun main() {
 
 /**
  *  617. Merge Two Binary Trees
- *  https://leetcode.com/problems/merge-two-binary-trees/
+ *  https://leetcode.com/problems/interview_prep.merge-two-binary-trees/
  *
  *  Complexity:
  *   n = minimum number of the nodes in tree

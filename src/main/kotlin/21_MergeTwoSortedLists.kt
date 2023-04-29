@@ -1,5 +1,5 @@
 /**
- * @link  https://leetcode.com/problems/merge-two-sorted-lists/
+ * @link  https://leetcode.com/problems/interview_prep.merge-two-sorted-lists/
  * problem is: 21. Merge Two Sorted Lists
  */
 
