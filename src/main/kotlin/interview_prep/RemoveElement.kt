@@ -1,8 +1,8 @@
 package interview_prep
 
 fun main() {
-    val nums = intArrayOf(3,2,2,3)
-    val `val` = 2
+    val nums = intArrayOf(1,1,2)
+    val `val` = 1
     println("value of k ${removeElement(nums, `val`)}")
 }
 
