@@ -2,6 +2,7 @@ package interview_prep
 
 fun main() {
     twoSum(intArrayOf(2,7,11,15), 9)
+    println("Max profit ${maxProfit3(intArrayOf(2,7,11,15))}")
 }
 
 /**
@@ -19,4 +20,33 @@ fun twoSum(nums: IntArray, target: Int): IntArray {
         map[value] = index
     }
     return intArrayOf()
+}
+
+private fun  maxProfit1(prices: IntArray): Int {
+    var maxProfit = 0
+    prices.forEachIndexed { index, buyingPrice->
+        for ((ind, sellingPrice) in prices.withIndex().drop(index + 1)) {
+            val prof =  sellingPrice - buyingPrice
+            if (prof > maxProfit) {
+                maxProfit = prof
+            }
+        }
+    }
+    return maxProfit
+}
+
+ fun  maxProfit3(prices: IntArray): Int {
+    var maxProfit = 0
+    var leastPrice = Int.MAX_VALUE
+    prices.forEachIndexed { index,price->
+        if (leastPrice > price) {
+            leastPrice = price
+        }
+
+        val profit = price - leastPrice
+        if (profit > maxProfit) {
+            maxProfit = profit
+        }
+    }
+    return maxProfit
 }

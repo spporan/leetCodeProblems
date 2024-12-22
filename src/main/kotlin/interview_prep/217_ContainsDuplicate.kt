@@ -1,5 +1,7 @@
+import kotlin.math.abs
+
 fun main() {
-    println("is duplicate in  the list ${containsDuplicate(intArrayOf(1,1,1,3,3,4,3,2,4,2))}")
+    println("is duplicate in  the list ${containsDuplicate(intArrayOf(9,0,-2))}")
 }
 
 /**
@@ -18,3 +20,4 @@ fun containsDuplicate(nums: IntArray): Boolean {
     }
     return false
 }
+
