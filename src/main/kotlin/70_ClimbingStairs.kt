@@ -1,5 +1,5 @@
 fun main() {
-    println("num of way ${climbStairsDP(45)}")
+    println("num of way ${climbStairsBottomUp(5)}")
 }
 
 /**
@@ -33,20 +33,13 @@ fun climbStairs(n: Int): Int {
 
 fun climbStairsUsingMemo(
     targetValue: Int,
-    init: Int = 0,
     memo: HashMap<Int, Int> = hashMapOf()
 ): Int {
-    if (memo.containsKey(init)) return memo.getValue(init)
-    if (init == targetValue) return 1
-
-    if (init > targetValue) return 0
-
-    val result = climbStairsUsingBruteForce(targetValue, init + 1) +
-            climbStairsUsingBruteForce(targetValue, init + 2)
-    memo[init] = result
-
-    return memo.getValue(init)
-
+    if (targetValue == 0 || targetValue == 1) return 1
+    if (!memo.contains(targetValue)) {
+        memo[targetValue] = climbStairsUsingMemo(targetValue - 1, memo) + climbStairsUsingMemo(targetValue - 2, memo)
+    }
+    return memo.getValue(targetValue)
 }
 
 fun climbStairsUsingBruteForce(targetValue: Int, init: Int = 0): Int {
@@ -65,7 +58,7 @@ fun climbStairsUsingBruteForce(targetValue: Int, init: Int = 0): Int {
  * complexity
  *
  *  time: O(n-1) = O(n)
- *  space: O(n-1) = O(n)
+ *  space: O(n-1) = O(1)
  */
 fun climbStairsDP(n: Int): Int {
 
@@ -78,4 +71,38 @@ fun climbStairsDP(n: Int): Int {
         two = temp
     }
     return one
+}
+/**
+ * Solved leetCode problem no: 70 Climbing Stairs using recursive approach
+ * https://leetcode.com/problems/climbing-stairs/
+ *  complexity:
+ *  here,
+ *    n = input number n
+ *
+ *  time: O(2^n)
+ *  space: O(n)
+ *
+ */
+fun climbStairsRecursive(n: Int): Int {
+    if (n == 0 || n == 1) return 1
+
+    return climbStairsRecursive(n - 1) + climbStairsRecursive(n - 2)
+}
+
+/**
+ * DP solution with bottom up or tabulation approach
+ *  time: O(n)
+ *  space: O(n)
+ */
+fun climbStairsBottomUp(n: Int): Int {
+    if (n == 0 || n == 1) return 1
+
+    val table = Array(n + 1) { 0 }
+    table[0] = 1
+    table[1] = 1
+    for (i in 2 until  table.size) {
+        table[i] = table[i - 1] + table[i - 2]
+    }
+
+    return table[n]
 }

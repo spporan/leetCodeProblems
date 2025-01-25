@@ -1,5 +1,5 @@
 fun main() {
-    println("Number of bits 1's: ${hammingWeight2(5)}")
+    println("Number of bits 1's: ${hammingWeight4(2147483645)}")
 }
 
 /**
@@ -14,7 +14,9 @@ fun hammingWeight2(n:Int):Int {
     var count = 0
     var number = n
     for (i in 0..31) {
-        if (number and 1!=0) count++
+        val cal = (number and 1)
+        println("number $number cal $cal")
+        if (cal == 1) count++
         number = number shr 1
     }
     return count
@@ -48,6 +50,20 @@ fun hammingWeight(n:Int):Int {
     return ans
 }
 
+fun hammingWeight3(n:Int):Int {
+    var m = n
+    var ans = 0
+    while(m != 0){
+        val calm = m and 1
+        if (calm == 1) {
+            ans++
+        }
+        m = m shr 1
+
+    }
+    return ans
+}
+
 fun hammingWeight1(n:Int):Int {
     var count = 0
     var number = n
@@ -58,6 +74,18 @@ fun hammingWeight1(n:Int):Int {
             number = (number - 1)/2
             count += 1
         }
+    }
+    return count
+}
+
+fun hammingWeight4(n:Int):Int {
+    var count = 0
+    var number = n
+    while (number > 0) {
+        if (number % 2 == 1) {
+            count += 1
+        }
+        number /= 2
     }
     return count
 }
